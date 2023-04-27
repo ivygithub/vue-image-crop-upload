@@ -222,7 +222,6 @@ export default {
 			mime = mimes[tempImgFormat];
 		// 规范图片格式
 		that.imgFormat = tempImgFormat;
-
 		if (langExt) {
 			Object.assign(lang, langExt);
 		}
@@ -460,10 +459,11 @@ export default {
 					lang,
 					maxSize
 				} = that;
+			lang.error.wrongType = 'Unsupported format, please use .jpeg, .jpg, or .png'
 			// 仅限图片
-			if (file.type.indexOf('image') === -1) {
+			if (!mimes[file.type.split('/')[1]]) {
 				that.hasError = true;
-				that.errorMsg = lang.error.onlyImg;
+				that.errorMsg = lang.error.wrongType;
 				return false;
 			}
 
