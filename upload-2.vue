@@ -470,7 +470,8 @@ export default {
 			// 超出大小
 			if (file.size / 1024 > maxSize) {
 				that.hasError = true;
-				that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+				that.errorMsg = lang.error.outOfSize +  '10 MB';
+
 				return false;
 			}
 			return true;
